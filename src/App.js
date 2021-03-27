@@ -28,25 +28,7 @@ function App() {
     <FavoriteMovieContext.Provider value={favoriteMovieContext}>
       <BookmarkedMovieContext.Provider value={bookmarkedMovieContext}>
         <div className={classes.container}>
-          <Router>
-            <ul>
-              <li>
-                <NavLink to="/" exact>Homepage</NavLink>
-              </li>
-              <li>
-                <NavLink to="/bookmarked">Bookmarked</NavLink>
-              </li>
-              <li>
-                <NavLink to="/favorite">Favorite</NavLink>
-              </li>
-            </ul>
-            
-            <Switch>
-                <Route path="/" component={Homepage} exact/>
-                <Route path="/bookmarked" component={BookmarkedMoviePage} exact/>
-                <Route path="/favorite" component={FavoriteMoviePage} exact/>
-            </Switch>
-          </Router>
+          <AppRoutes />
         </div>
       </BookmarkedMovieContext.Provider>
     </FavoriteMovieContext.Provider>

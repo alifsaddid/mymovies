@@ -19,7 +19,7 @@ export default function FavoriteMoviePage() {
 
     return (
         favorite.length == 0 ?
-        "Belum ada film yang dibookmark"
+        "Belum ada film yang disukai"
         :
         <div className={classes.moviesContainer}>
             {favorite.map((movie) => <MovieBox movie={movie} />)}
