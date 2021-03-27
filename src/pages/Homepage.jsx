@@ -3,8 +3,6 @@ import fromApi from '../actions/fromApi.js';
 import useFromApi from '../hooks/useFromApi.js';
 import MovieBox from '../components/MovieBox';
 import { createUseStyles } from "react-jss";
-import BookmarkedMovieContext from '../context/BookmarkedMovieContext';
-import FavoriteMovieContext from '../context/FavoriteMovieContext';
 
 const useStyles = createUseStyles({
     moviesContainer: {
@@ -46,9 +44,6 @@ export default function Homepage() {
     const [keywordSearch, setKeywordSearch] = useState();
     const [movies, setMovies] = useState("hello");
     const { loading, data } = useFromApi(fromApi.searchMovie(keywordSearch, 1), [keywordSearch]);
-    
-    const { bookmarked, setBookmarked } = useContext(BookmarkedMovieContext);
-    const { favorite, setFavorite } = useContext(FavoriteMovieContext);
 
     function inputHandler(e) {
         setKeywordInput(e.target.value);

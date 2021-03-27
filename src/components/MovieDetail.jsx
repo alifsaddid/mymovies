@@ -25,8 +25,6 @@ const useStyles = createUseStyles({
 export default function MovieDetail(props) {
     const classes = useStyles();
 
-    console.log(props.movie);
-
     return (
         <div className={classes.container}>
             <div>
