@@ -19,6 +19,14 @@ const useStyles = createUseStyles({
     },
     dataContainer: {
         padding: "5px"
+    },
+    detail: {
+        padding: "10px",
+        background: "#0069ff",
+        width: "auto",
+        marginBottom: "100px",
+        color: "white",
+        borderRadius: "8px"
     }
 });
 
@@ -81,10 +89,13 @@ export default function MovieBox(props) {
 
     return (
         <>
-            <div className={classes.imageBox} onClick={showModal}>
-                <img src={(props.movie.Poster !== "N/A") ? props.movie.Poster : noimage } alt={props.movie.Title} className={classes.poster}/>
+            <div className={classes.imageBox}>
+                <img  onClick={showModal} src={(props.movie.Poster !== "N/A") ? props.movie.Poster : noimage } alt={props.movie.Title} className={classes.poster}/>
                 <div className={classes.dataContainer}>
-                    <h3>{props.movie.Title}</h3>
+                    <h3  onClick={showModal}>{props.movie.Title}</h3>
+                    <a  onClick={showModal} className={classes.detail}>Detail</a>
+                    <br/>
+                    <br/>
                     {!checkIsBookmarked() ? 
                         <svg onClick={handleBookmark} width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M5 0v24l7-6 7 6v-24h-14zm1 1h12v20.827l-6-5.144-6 5.144v-20.827z"/></svg>
                         :
@@ -99,8 +110,6 @@ export default function MovieBox(props) {
             </div>
                 {isShowModal && 
             <Modal imdb={props.movie.imdbID} onClose={closeModal}>
-                <h1>Hello, world!</h1>   
-                <h1>{isShowModal}</h1> 
             </Modal>}
         </>
     )
